@@ -1,0 +1,11 @@
+MATRICULE,Civilite,Prenom,Nom de famille,Date de naissance,Lieu de naissance,Nationalite,Numero CNPS,Numero CMU,Rue,Quartier,Ville,Pays,Statut Marital,Nombre d'enfants a charge,Nombre de Parts,Date d'embauche,Anciennete,Poste actuel,Date de Depart,Numerode Telephone,Email,currentContract_uuid
+CH006,MONSIEUR,FRANCK SALES,YAO,01-01-1990,DALOA,ivoirienne,1.90012E+11,,,,,,celibataire,1,,01/12/15,5400,COURSIER,,,,
+TEMP1,MADAME,NAOMI,DEBETOU,19-02-1987,TOULEPLEU,ivoirienne,2.87012E+11,,,,,,mariée,2,,01/06/18,3221,SECRETAIRE DIRECTION,,,,
+TEMP2,MONSIEUR,EMMANUEL,KOUAME,28-12-1974,SINFRA,ivoirienne,1.74012E+11,,,,,,celibataire,2,,01/09/16,4500,COURSIER,,,,
+TEMP3,MONSIEUR,DAOUDA,OUEDRAOGO,01-01-1971,KOUNDOUBA,burkinabe,1.71022E+11,,,,,,celibataire,1,,01/03/19,2416,GARDIEN NUIT,,,,
+TEMP4,MONSIEUR,ABDOULAYE,YORO,03-07-1974,MARCORY,burkinabe,1.74022E+11,,,,,,celibataire,1,,01/04/19,2416,GARDIEN JOUR,,,,
+CE050,MONSIEUR,ALLA JEAN FIDEL,KOFFI,08-10-1991,GUIBEROA,ivoirienne,1.91012E+11,,,,,,celibataire,1,,01/08/19,1800,COURSIER,,,,
+AD027,MONSIEUR,DJAGO CARLOS,GOTTA,26-12-1983,DIVO,ivoirienne,1.83011E+11,,,,,,celibataire,1,,01/11/19,1800,COURSIER,,,,
+CE083,MONSIEUR,KOUASSI,BAUHA,01-01-1989,TIEBISSOU,ivoirienne,1.89012E+11,,,,,,celibataire,,,01/11/19,1800,COURSIER,,,,
+CE070,MADAME,BROU JULIETTE,KOUAKOU,,,ivoirienne,2.90011E+11,,,,,,celibataire,2,,01/10/19,,TECHNICIENNE DE SURFACE,,,,
+Ceoe,MONSIEUR,ZABLE HERMANN,VREROU,01-05-1993,BOBO NIESSOKO,ivoirienne,1.93012E+11,,,,,,celibataire,,,23/12/20,,COURSIER,,,,
