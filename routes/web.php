@@ -45,9 +45,10 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::post('file-import', [EmployeeController::class, 'importEmploye'])->name('employe.import_store');
 
 
-    Route::get('/search', [EmployeeController::class,'search'])->name('guest.search');
+    
 
     
 });
+Route::get('/search', [EmployeeController::class,'search'])->name('guest.search');
 
 require __DIR__.'/auth.php';
