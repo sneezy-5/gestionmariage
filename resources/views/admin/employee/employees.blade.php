@@ -32,10 +32,8 @@
                   <th>Id</th>
                   <th>Matricule</th>
                     <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Poste</th>
-                    <th>Ancienneté</th>
-                    <th>Nationalité</th>
+                    <th>function</th>
+                    <th>table</th>
 
                     <th>Action</th>
                   </tr>
@@ -45,15 +43,10 @@
                  
                   @foreach ($employes as $employe) 
                     <tr>
-                    <td>{{$employe->id}}</td>
-                    <td>{{$employe->matricule}}</td>
-                      <td>{{$employe->firstName}}</td>
-                      <td>{{$employe->lastName}}</td>
-                      <td>{{$employe->currentPosition}}</td>
-                      <td> {{$employe->seniority}}</td>
-                      <td> {{$employe->nationality}}</td>
+                    <td>{{$employe->name}}</td>
+                    <td>{{$employe->function}}</td>
+                    <td>{{$employe->table_name}}</td>
                       <td class="text-end">
-                      <a class="btn btn-secondary" href="{{ route('pays.pay',['payslip'=>$employe->id])}}">PaySlip</a>
                         <a class="btn btn-secondary" href="{{ route('employee.show',['employee'=>$employe->id])}}">Voir</a>
                    
                      

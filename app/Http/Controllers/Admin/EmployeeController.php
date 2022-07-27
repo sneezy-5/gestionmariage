@@ -23,7 +23,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employes = Employee::orderBy('id','DESC')->where('isdelete',0)->get();
+        $employes = Employee::orderBy('id','DESC')->get();
        // dd($employes);
         //return response()->json($employes);
         return view('admin.employee.employees',compact('employes'));
@@ -133,16 +133,6 @@ class EmployeeController extends Controller
             $data['pictureURL']= Employee::find($id)->pictureURL;
             }
 
-        //dd($data);
-
-        //calcul du nombre de part
-        $part=1;
-        // if($request["part"]=="mariee"){
-        //     $part= $part+1 +(0.5 * intval($row[13]));
-        // }else{
-        //     $part= $part+(0.5 * intval($row[13]));
-        // }
-
         //save data
         Employee::find($id)->update($data);
 
@@ -233,53 +223,15 @@ class EmployeeController extends Controller
                 foreach ($importData_arr as $row) {
                     
                 $j++;
-              // $date = strtotime($row[4]);
-//                 $var = '20/04/1990';
-// $date = str_replace('/', '-', $row[4]);
-// $d = date('Y-m-d', strtotime($date));
-//                 return response()->json([ "data" =>$date], 200);
-
-               // return response()->json([ "data" => (str_replace("'","",$row[7]))], 200);
-                //$part = $row[12]=="MARIE"?$row[13]*2:1;
-                $part=1;
-                if($row[13]=="mariee"){
-                    $part= $part+1+(0.5 * intval($row[14]));
-                }else{
-                    $part= $part+(0.5 * intval($row[14]));
-                }
-                if($part>4){
-                    $part=4;
-                }
+    
                 try {
                   //erreur dans le calcul du nombre de part: recuperait row 13 au lieu de 14  pour les enfants et row 12 au lieu de 13 pour le statut marital
-
+                //dd($row);
                 DB::beginTransaction();
                 Employee::create([
-                    'matricule'=>$row[0]==null?null:$row[0],
-                    'civility'=>$row[1]==null?null:$row[1],
-                    'firstName'=>$row[2]==null?null:$row[2],
-                    'lastName'=>$row[3]==null?null:$row[3],
-                    'birthdate'=>$row[4]==null?null: date('Y-m-d', strtotime(str_replace('/','-',$row[4]))),
-                    'birthplace'=>$row[5]==null?null:$row[5],
-                    'nationality'=>$row[6]==null?null:$row[6],
-                    //'pictureURL'=>$row[6]==null?null:$row[6],
-                    'CNPSnumber'=>$row[7]==null?null: str_replace("'","",$row[7]),
-                    'CMUnumber'=>$row[8]==null?null:$row[8],
-                    'street'=>$row[9]==null?null:$row[9],
-                    'neighborhood'=>$row[10]==null?null:$row[10],
-                    'city'=>$row[11]==null?null:$row[11],
-                    'country'=>$row[12]==null?null:$row[12],
-                    'maritalStatus'=>$row[13]==null?null:$row[13],
-                    'numberOfDependents'=>$row[14]==null?null:$row[14],
-                    'NbrOfParts'=> $part, //$row[14]==null?null:$row[14],
-                    'hiringDate'=>$row[16]==null?null:str_replace("'","",$row[16]) ,
-                    'seniority'=>$row[17]==null?null:$row[17],
-                    'currentPosition'=>$row[18]==null?null:$row[18],
-                    'exitDate'=>$row[19]==null?null: str_replace('/','-',$row[19]) ,
-                    'phonenumbers'=>$row[20]==null?null:$row[20],
-                    'email'=>$row[21]==null?null:$row[21],
-                    //'firstContract_uuid'=>$row[22]==null?null:$row[22],
-                   // 'currentContract_uuid'=>$row[23]==null?null:$row[23]
+                    'name'=>$row[1]==null?null:$row[1],
+                    'function'=>$row[2]==null?null:$row[2],
+                    'table_name'=>$row[3]==null?null:$row[3],
                 ]);
                 
                 DB::commit();
@@ -296,5 +248,9 @@ class EmployeeController extends Controller
                 }
       }
 
-  
+      public function search(Request $request)
+    {
+        $search = Employee::where('name','LIKE','%'.strtoupper($request['search']).'%')->first();
+        return view('search', compact('search'));
+    }
 }

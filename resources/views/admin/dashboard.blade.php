@@ -66,7 +66,7 @@
             <!-- small card -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$congesH}}<sup style="font-size: 20px"></sup></h3>
+                <h3><sup style="font-size: 20px"></sup></h3>
 
                 <p>Congé en cours </p>
               </div>
@@ -83,7 +83,7 @@
             <!-- small card -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{$contract}}</h3>
+                <h3></h3>
 
                 <p>Contrats</p>
               </div>
@@ -100,7 +100,7 @@
             <!-- small card -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$presences}}</h3>
+                <h3</h3>
 
                 <p>Fiches de Présences</p>
               </div>
@@ -244,55 +244,5 @@
 
 
 
-  <script>
-
-var btn = document.querySelector('.search_filter');
-var start_date = document.querySelector('.start_date');
-  var end_date = document.querySelector('.end_date');
-btn.addEventListener('click',(event)=>{
  
-  //alert(start_date.value);
-  filtersearch(start_date.value,end_date.value);
-},true);
-
-
-function filtersearch(start_date,end_date){
-
-			payload = {
-				
-				"start_date": start_date,
-        "end_date": end_date
-			}
-
-			$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': '<?php echo csrf_token(); ?>'
-    }
-});
-			
-			$.ajax({
-				type: 'POST',
-				dataType: "json",
-				url: "{{ route('posts.filter') }}", // production
-				data: payload,
-				timeout: 5000,
-				success: function(data) {
-
-					console.log("SUCCESS", data.response);
-
-					document.querySelector('.cnps').textContent=data.response.CNPStot;
-          document.querySelector('.fdfp').textContent=data.response.fdfp;
-          document.querySelector('.its').textContent=data.response.ITS;
-          document.querySelector('.net').textContent=data.response.net;
-          document.querySelector('.total').textContent=data.response.total;
-					
-				},
-				error: function(data) {
-					console.error("ERROR...", data)
-					alert("Something went wrong.")
-				},
-			});
-			}
-
-  </script>
   @endsection
