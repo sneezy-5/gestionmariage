@@ -243,15 +243,16 @@ class ContractController extends Controller
                 try {
                 DB::beginTransaction();
                 Contract::create([
-                    'contract_type'=>$row[2]==null?null:$row[2],
-                    'position'=>$row[3]==null?null:$row[3],
-                    'baseSalary'=>$row[4]==null?null:$row[4],
-                    'extrapay'=>$row[5]==null?null:$row[5],
-                    'transportationAllowance'=>$row[6]==null?null:$row[6],
-                    'signingDate'=>$row[7]==null?null:str_replace('/','-',$row[7]),
-                    'startDate'=>$row[8]==null?null:str_replace('/','-',$row[8]),
-                    'endDate'=>$row[9]==null?null:str_replace('/','-',$row[9]),
-                    'employee_uuid'=> Employee::where('matricule',$row[10])->first()==null?0:Employee::where('matricule',$row[10])->first()->id
+                    'employee_uuid'=> Employee::where('matricule',$row[0])->first()==null?0:Employee::where('matricule',$row[0])->first()->id,
+                    'contract_type'=>$row[3]==null?null:$row[3],
+                    'position'=>$row[4]==null?null:$row[4],
+                    'baseSalary'=>$row[5]==null?null:$row[5],
+                    'extrapay'=>$row[6]==null?null:$row[6],
+                    'transportationAllowance'=>$row[7]==null?null:$row[7],
+                    'signingDate'=>$row[8]==null?null:str_replace('/','-',$row[8]),
+                    'startDate'=>$row[9]==null?null:str_replace('/','-',$row[9]),
+                    'endDate'=>$row[10]==null?null:str_replace('/','-',$row[10]),
+                    
                 ]);
                 
                 DB::commit();

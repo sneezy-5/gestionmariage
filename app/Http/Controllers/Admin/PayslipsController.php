@@ -357,10 +357,10 @@ class PayslipsController extends Controller
                 // dd($netAPayer);
                 //Calcul CNPSPatronale
     
-                if($brutImposable>70000){
+                if($brutImposable<2700000){
                     $CNPSPatronale=round(0.0875*70000+$brutImposable*0.077);
                 }else{
-                    $CNPSPatronale=round($brutImposable*0.1645);
+                    $CNPSPatronale=round(0.0875*70000+2700000*0.077);
                 }
               
     

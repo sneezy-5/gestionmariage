@@ -733,8 +733,9 @@
           <th class="border cotisation ">Brut Soc.</th>
           <th class="border cotisation ">charges SAL.</th>
           <th class="border cotisation ">charges pat.</th>                  
-          <th class="border cotisation">net</th>
           <th class="border cotisation ">MONT.PAT</th>
+          <th class="border cotisation fw-bold">net</th>
+
       </thead>
       <tbody class="btable">
           <td class="border ">periode</td>
@@ -743,8 +744,9 @@
           <td class="border ">{{number_format($grossIncome["brutImposableFiscal"],0,","," ")}}</td>
           <td class="border ">{{number_format($empDeductions["totret"]-$empDeductions["payday"],0,","," ")}}</td>
           <td class="border ">{{number_format($compDeductions["total"],0,","," ")}}</td>
-          <td class="border ">{{number_format(($payslip->netToPay),0,","," ")}}</td>
           <td class="border">{{number_format(($compDeductions["total"]+$totrevenue),0,","," ")}}</td>
+          <td class="border netcumul">{{number_format(($payslip->netToPay),0,","," ")}}</td>
+
           
       </tbody>
     </table>
