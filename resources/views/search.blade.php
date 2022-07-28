@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mariage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-  
+ 
+
 <style>
     @import url('https://fonts.googleapis.com/css?family=Krub:400,700');
 
@@ -280,53 +282,36 @@ body {
 
 </style>
 
-<script>
-    const target = {
-  clicked: 0,
-  currentFollowers: 90,
-  btn: document.querySelector("a.btn"),
-  fw: document.querySelector("span.followers")
-};
 
-const follow = () => {
-  target.clicked += 1;
-  target.btn.innerHTML = 'Following <i class="fas fa-user-times"></i>';
-
-  if (target.clicked % 2 === 0) {
-    target.currentFollowers -= 1;
-    target.btn.innerHTML = 'Follow <i class="fas fa-user-plus"></i>';
-  }
-  else {
-    target.currentFollowers += 1;
-  }
-
-  target.fw.textContent = target.currentFollowers;
-  target.btn.classList.toggle("following");
-}
-
-</script>
-
-    <div class="card">
-  <div class="ds-top"></div>
-
+    <!-- <div class="card">
+  <div class="ds-top"></div> -->
+<div class="container">
+  <div class="row">
   @if($search)
-   <div class="name">
-    <p>{{$search->name}}</p>
-    <p>{{$search->function}}</p>
+   <div class="name overflow-auto ">
+    @foreach($search as $s)
+    <div class="bg-warning">
+      <h4 class="  text-secondary">Nom:</h4>
+      <p  class="p-3 mb-2 bg-success text-white">{{$s->name}}</p>
+      <h4 class="text-secondary">Fonction:</h4>
+      <p  class="p-3 mb-2 bg-success text-white">{{$s->function}}</p>
+      <h4 class="text-secondary">Table:</h4>
+      <p class="p-3 mb-2 bg-success text-white">{{$s->table_name}}</p>
+    </div>
    
-    <p>
-    <h6 title="Followers"><i class="fas fa-users"></i> <span class="followers">Table:</span></h6> <span>{{$search->table_name}}</span>
-    </p>
-   
+    @endforeach
   </div>
    @else
     <p>not found</p>
 
     @endif
+  </div>
+</div>
+  
 
  
  
-    </div>
+    <!-- </div> -->
 </body>
 </html>
 

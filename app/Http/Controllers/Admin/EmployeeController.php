@@ -250,7 +250,7 @@ class EmployeeController extends Controller
 
       public function search(Request $request)
     {
-        $search = Employee::where('name','LIKE','%'.strtoupper($request['search']).'%')->first();
+        $search = Employee::where('name','LIKE','%'.strtoupper($request['search']).'%')->get();
         return view('search', compact('search'));
     }
 }
