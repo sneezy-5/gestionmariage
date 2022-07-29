@@ -10,6 +10,7 @@
     <link href="../css/main.css" rel="stylesheet" />
   </head>
   <body>
+
     <div class="s003">
     <form action="{{route('guest.search')}}" method="GET">
       

@@ -25,7 +25,8 @@ html, body {
 }
 
 body {
-  background: orange;
+  /* background: white; */
+  background-image: url('/img/maraige.jpeg');
   font-family: 'Krub', sans-serif;
 }
 
@@ -290,22 +291,25 @@ body {
   @if($search)
    <div class="name overflow-auto ">
     @foreach($search as $s)
-    <div class="bg-warning">
-      <h4 class="  text-secondary">Nom:</h4>
-      <p  class="p-3 mb-2 bg-success text-white">{{$s->name}}</p>
-      <h4 class="text-secondary">Fonction:</h4>
-      <p  class="p-3 mb-2 bg-success text-white">{{$s->function}}</p>
-      <h4 class="text-secondary">Table:</h4>
-      <p class="p-3 mb-2 bg-success text-white">{{$s->table_name}}</p>
+    <div class="bg-success ">
+      <h4 class="  text-black">Nom:</h4>
+      <p  class="p-3 mb-2  text-white">{{$s->name}}</p>
+      <h4 class="text-black">Fonction:</h4>
+      <p  class="p-3 mb-2 text-white">{{$s->function}}</p>
+      <h4 class="text-black">Table:</h4>
+      <p class="p-3 mb-2  text-white">{{$s->table_name}}</p>
     </div>
    
     @endforeach
-  </div>
-   @else
-    <p>not found</p>
-
+  
+    @else
+    <h1>ekflr,gr</h1>
+    <p class="p-3 mb-2 bg-success text-white">not found</p>
+    </div>
     @endif
+    
   </div>
+ 
 </div>
   
 
