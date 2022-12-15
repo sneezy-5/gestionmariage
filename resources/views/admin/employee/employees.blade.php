@@ -29,8 +29,6 @@
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                  <th>Id</th>
-                  <th>Matricule</th>
                     <th>Nom</th>
                     <th>function</th>
                     <th>table</th>

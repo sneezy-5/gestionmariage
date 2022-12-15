@@ -44,11 +44,9 @@
                  
                   @foreach ($employees as $employeeidrecord) 
                     <tr>
-                      <td>{{$employeeidrecord->type}}</td>
-                      <td>{{$employeeidrecord->idnumber }}</td>
-                      <td>{{$employeeidrecord->issuanceDate}}</td>
-                      <td> {{$employeeidrecord->expirationDate }}</td>
-                      <td> {{$employeeidrecord->countryOfInsuance}}</td>
+                      <td>{{$employeeidrecord->name}}</td>
+                      <td>{{$employeeidrecord->function }}</td>
+                      <td>{{$employeeidrecord->table_name}}</td>
                       <td class="text-end">
                         <a class="btn btn-secondary" href="{{ route('employeeidrecord.show',['employeeidrecord'=>$employeeidrecord->uuid])}}">Voir</a>
                       </td>

@@ -24,7 +24,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employes = Employee::orderBy('id','DESC')->get();
-       // dd($employes);
+        //dd($employes);
         //return response()->json($employes);
         return view('admin.employee.employees',compact('employes'));
     }
