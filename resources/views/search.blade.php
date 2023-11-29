@@ -26,7 +26,12 @@ html, body {
 
 body {
   /* background: white; */
-  background-image: url('/img/maraige.jpeg');
+  margin: 0;
+    padding: 0;
+  background-image:  url('/img/mariage-search.jpg');
+  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   font-family: 'Krub', sans-serif;
 }
 

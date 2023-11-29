@@ -13,8 +13,14 @@ html {
  * Remove the margin in all browsers (opinionated).
  */
 body {
-  margin: 0;
-  background-image: url('/img/mariage.jpeg');
+    margin: 0;
+    padding: 0;
+    background-image: url('/img/home.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+
 }
 
 /**
