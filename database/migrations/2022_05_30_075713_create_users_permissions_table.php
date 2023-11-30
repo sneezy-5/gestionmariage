@@ -16,7 +16,6 @@ class CreateUsersPermissionsTable extends Migration
         Schema::create('users_permissions', function (Blueprint $table) {
             $table->uuid('user_uuid');
             $table->uuid('permission_uuid');
-
             $table->primary(['user_uuid','permission_uuid']);
         });
     }

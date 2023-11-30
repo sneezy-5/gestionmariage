@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
- 
+
 
 <style>
     @import url('https://fonts.googleapis.com/css?family=Krub:400,700');
@@ -286,40 +286,42 @@ body {
   background: crimson;
 }
 
+.center-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Adjust as needed */
+    }
 </style>
 
 
-    <!-- <div class="card">
-  <div class="ds-top"></div> -->
-<div class="container">
-  <div class="row">
-  @if($search)
-   <div class="name overflow-auto ">
-    @foreach($search as $s)
-    <div class="bg-success ">
-      <h4 class="  text-black">Nom:</h4>
-      <p  class="p-3 mb-2  text-white">{{$s->name}}</p>
-      <h4 class="text-black">Fonction:</h4>
-      <p  class="p-3 mb-2 text-white">{{$s->function}}</p>
-      <h4 class="text-black">Table:</h4>
-      <p class="p-3 mb-2  text-white">{{$s->table_name}}</p>
+  <div class="container  d-flex  align-items-center justify-content-center">
+    <div class="row center-content">
+        @if($search)
+            <div class="name overflow-auto text-center">
+                @foreach($search as $s)
+                    <div class="text-white" style="background-color: #C69774; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
+                        <h4 class="text-primary">Nom:</h4>
+                        <p class="p-3 mb-2 text-white">{{$s->name}}</p>
+                        <h4 class="text-primary">Fonction:</h4>
+                        <p class="p-3 mb-2 text-white">{{$s->function}}</p>
+                        <h4 class="text-primary">Table:</h4>
+                        <p class="p-3 mb-2 text-white">{{$s->table_name}}</p>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <h1>ekflr,gr</h1>
+            <p class="p-3 mb-2 bg-success text-white">not found</p>
+        </div>
+        @endif
     </div>
-   
-    @endforeach
-  
-    @else
-    <h1>ekflr,gr</h1>
-    <p class="p-3 mb-2 bg-success text-white">not found</p>
-    </div>
-    @endif
-    
-  </div>
- 
 </div>
-  
 
- 
- 
+
+
+
+
     <!-- </div> -->
 </body>
 </html>

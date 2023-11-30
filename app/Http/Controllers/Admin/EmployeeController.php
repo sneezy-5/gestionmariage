@@ -63,7 +63,7 @@ class EmployeeController extends Controller
             $data['pictureURL']=$fileNameToStore;
             }
 
-           
+
         // Else add a dummy image
         else {
             $fileNameToStore = 'noimage.jpg';
@@ -86,7 +86,7 @@ class EmployeeController extends Controller
     public function show($id)
     {
         $employee = Employee::find($id);
-       
+
         return view('admin.employee.show_employe', compact('employee'));
     }
 
@@ -126,7 +126,7 @@ class EmployeeController extends Controller
             $data['pictureURL']=$fileNameToStore;
             }
 
-           
+
         // Else add a dummy image
         else {
             $fileNameToStore = 'noimage.jpg';
@@ -159,28 +159,27 @@ class EmployeeController extends Controller
     {
        return view('admin.employee.employe_import');
     }
-   
 
 
-    public function fileImport(Request $request) 
+
+    public function fileImport(Request $request)
     {
-        
+
         Excel::import(new EmployeImport, $request->file('employe_import')->store('temp'));
         Session::put('success', 'Youe file successfully import in database!!!');
         return back();
     }
 
-    
 
-    public function fileExport() 
+
+    public function fileExport()
     {
        // return Excel::download(new UsersExport, 'users-collection.xlsx');
-    }   
+    }
     //-------------------------------------------------------------------------------------------------------
 
     public function importEmploye(Request $request)
     {
-     
         $file = $request->file('employe_import');
                 if ($file) {
                 $filename = $file->getClientOriginalName();
@@ -190,21 +189,21 @@ class EmployeeController extends Controller
                 //Check for file extension and size
 
                 ImportFileCheck::checkUploadedFileProperties($extension,$fileSize);
-    
-                //Where uploaded file will be stored on the server 
+
+                //Where uploaded file will be stored on the server
                 $location = 'uploads'; //Created an "uploads" folder for that
                 // Upload file
                 $file->move($location, $filename);
-                // In case the uploaded file path is to be stored in the database 
+                // In case the uploaded file path is to be stored in the database
                 $filepath = public_path($location . "/" . $filename);
                 // Reading file
                 $file = fopen($filepath, "r");
                 $importData_arr = array(); // Read through the file and store the contents as an array
                 $i = 0;
-                
 
-               
-                //Read the contents of the uploaded file 
+
+
+                //Read the contents of the uploaded file
                 while (($filedata = fgetcsv($file, 1000, ",")) !== FALSE) {
                 $num = count($filedata);
                 // Skip first row (Remove below comment if you want to skip the first row)
@@ -221,9 +220,9 @@ class EmployeeController extends Controller
                 fclose($file); //Close after reading
                 $j = 0;
                 foreach ($importData_arr as $row) {
-                    
+
                 $j++;
-    
+
                 try {
                   //erreur dans le calcul du nombre de part: recuperait row 13 au lieu de 14  pour les enfants et row 12 au lieu de 13 pour le statut marital
                 //dd($row);
@@ -233,7 +232,7 @@ class EmployeeController extends Controller
                     'function'=>$row[2]==null?null:$row[2],
                     'table_name'=>$row[3]==null?null:$row[3],
                 ]);
-                
+
                 DB::commit();
                 } catch (\Exception $e) {
                 throw $e;
@@ -251,6 +250,7 @@ class EmployeeController extends Controller
       public function search(Request $request)
     {
         $search = Employee::where('name','LIKE','%'.strtoupper($request['search']).'%')->get();
-        return view('search', compact('search'));
+        return response()->json(['response'=> $search],200);
+       // return view('search', compact('search'));
     }
 }

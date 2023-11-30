@@ -33,7 +33,7 @@ Route::get('/', function () {
 
 // Route::get('/dashboard', function () {
 //     //return view('dashboard');
-    
+
 // })->middleware(['auth'])->name('dashboard');
 
 Route::middleware(['auth','admin'])->group(function(){
@@ -45,10 +45,10 @@ Route::middleware(['auth','admin'])->group(function(){
     Route::post('file-import', [EmployeeController::class, 'importEmploye'])->name('employe.import_store');
 
 
-    
 
-    
+
+
 });
-Route::get('/search', [EmployeeController::class,'search'])->name('guest.search');
+Route::post('/search', [EmployeeController::class,'search'])->name('guest.search');
 
 require __DIR__.'/auth.php';
